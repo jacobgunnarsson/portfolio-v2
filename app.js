@@ -19,9 +19,8 @@ var App = express();
 App.configure(function() {
     App.set('port', process.env.PORT || 3000);
     App.set('views', __dirname + '/views');
-    App.set('view engine', 'haml');
+    App.set('view engine', 'jade');
 
-    App.use(express.logger('development'));
     App.use(express.bodyParser());
     App.use(express.methodOverride());
     App.use(App.router);
