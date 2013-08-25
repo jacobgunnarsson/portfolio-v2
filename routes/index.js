@@ -1,10 +1,10 @@
 
 /*
-*   GET home page.
+*   GET home page
 */
 
-exports.index = function(request, response){
+exports.index = function(request, response) {
 
-    response.render('index');
+    response.render('index', { ENVIRONMENT: request.GLOBALS.ENVIRONMENT });
 
 };
