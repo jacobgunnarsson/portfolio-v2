@@ -44,10 +44,12 @@ App.configure(function() {
         next();
     });
 
+
     /*
     *   Router
     */
     App.use(App.router);
+
 
     /*
     *   Development debugging

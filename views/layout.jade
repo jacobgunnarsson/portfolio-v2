@@ -11,27 +11,39 @@ html.no-js
 	head
 		meta(charset='utf-8')
 		meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
-		title
-		meta(name='description', content='')
+		title Interactive developer - Jacob Gunnarsson
+		meta(name='description', keywords='jacob, gunnarsson, interactive, developer')
+		meta(name='description', content='Portfolio of Interactive developer Jacob Gunnarsson')
 		meta(name='viewport', content='width=device-width, initial-scale=1')
 
-		link(rel='stylesheet', href='css/normalize.css')
-		link(rel='stylesheet', href='css/main.css')
+		link(rel='shortcut icon', type='image/png', href='img/favicon.png')
 
-		script(src='js/vendor/modernizr-2.6.2.min.js')
+		if locals.ENVIRONMENT == 'development'
+			link(rel='stylesheet/less', href='less/styles.less')
+			script(src='js/libs/less-1.4.1.min.js')
+		else
+			link(rel='stylesheet', type='text/css', href='css/styles.min.css')
+
+		script(src='js/libs/modernizr.custom-2.6.2.min.js')
 	body
-		p #{locals.ENVIRONMENT}
+
 		block content
 
-		script(src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
-		script window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')
-		script(src='js/plugins.js')
-		script(src='js/main.js')
+		script(src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+		script window.$ || document.write('<script src="js/libs/jquery-2.0.3.min.js"><\/script>')
+
+		if locals.ENVIRONMENT == 'development'
+			script(src='js/libs/tweenmax-1.10.2.min.js')
+			script(src='js/libs/pxloader-1.0.0.min.js')
+			script(src='js/skynet.js')
+		else
+			script(src='js/skynet.selfaware.min.js')
+
 
 		script.
-			(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-			function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-			e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-			e.src='//www.google-analytics.com/analytics.js';
-			r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-			ga('create','UA-XXXXX-X');ga('send','pageview');
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-43483201-1', 'jacobgunnarsson.com');
+			ga('send', 'pageview');

@@ -1,0 +1,50 @@
+
+
+/*
+*	Mixins
+*/
+
+.bg(@url) {
+	background-image: url(@url);
+	background-repeat: no-repeat;
+}
+
+.sprite(@pos) {
+	background-image: url('../img/sprite.png');
+	background-size: 1680px 1050px;
+	background-position: @pos;
+	background-repeat: no-repeat;
+}
+
+.opacity(@opacity) {
+	-webkit-opacity: @opacity;
+	-moz-opacity: @opacity;
+	opacity: @opacity;
+}
+
+.transform-origin(@origin) {
+	-webkit-transform: @origin;
+	-moz-transform: @origin;
+	-ms-transform: @origin;
+	-o-transform: @origin;
+}
+
+.perspective (@value) {
+	-webkit-perspective: @value;
+	-moz-perspective: @value;
+	-ms-perspective: @value;
+	perspective: @value;
+}
+
+.transition(@transition) {
+	-webkit-transition: @transition;
+	-moz-transition: @transition;
+	-ms-transition: @transition;
+	-o-transition: @transition;
+}
+
+.backface-visibility(@visibility) {
+	backface-visibility: @visibility;
+	-webkit-backface-visibility: @visibility;
+	-moz-backface-visibility: @visibility;
+}

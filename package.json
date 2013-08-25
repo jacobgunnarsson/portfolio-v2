@@ -3,6 +3,11 @@
     "version": "0.1.0",
     "dependencies": {
         "express": "3.*",
-        "jade": "*"
+        "jade": "*",
+        "grunt": "*",
+        "grunt-contrib-cssmin": "*",
+        "grunt-contrib-concat": "*",
+        "grunt-contrib-uglify": "*",
+        "grunt-contrib-less": "*"
     }
 }
