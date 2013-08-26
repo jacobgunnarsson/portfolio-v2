@@ -27,7 +27,36 @@ var GLOBALS = {
 
 		this.init = function() {
 
+			this.bindGlobalEvents();
+
 			this.LoaderView.init();
+
+		};
+
+		this.bindGlobalEvents = function() {
+			var self = this;
+
+			$(window).on('resize', function() {
+				self.onResize();
+			});
+
+		};
+
+		this.onResize = function() {
+
+			/*
+			*	Reposition elements
+			*/
+			if ($('.loader-frame-white').length) {
+				var newBottom = Math.round(($(window).height() / 2) - ($('.loader-frame-white').outerHeight() / 2)) - 3,
+					newMargin = '0 0 0 -69px';
+
+				$('.loader-frame-white').css({
+					'bottom': newBottom,
+					'margin': newMargin
+				});
+			}
+
 
 		};
 
@@ -41,7 +70,7 @@ var GLOBALS = {
 
 		el: $('.loader'),
 
-		events: function() {
+		bindEvents: function() {
 
 		},
 
@@ -49,7 +78,7 @@ var GLOBALS = {
 			var self = this,
 				preloader = new PxLoader();
 
-			this.events();
+			this.bindEvents();
 
 			for (var i = 0; i < GLOBALS.preload.loader.length; ++i)
 				preloader.addImage(GLOBALS.preload.loader[i]);
@@ -94,6 +123,16 @@ var GLOBALS = {
 			*/
 			TL.set('.loader-frame-black span', { scale: 0.75, autoAlpha: 0 });
 			TL.set('.loader-frame-black i', { y: 15, autoAlpha: 0 });
+
+			var newBottom = Math.round(($(window).height() / 2) - ($('.loader-frame-white').outerHeight() / 2)) - 3,
+				newMargin = '0 0 0 -69px';
+
+			$('.loader-frame-white').css({
+				'bottom': newBottom,
+				'margin': newMargin
+			});
+
+			$('.loader-frame-white-container').css('height', '0');
 
 			/*
 			*	Start animations
